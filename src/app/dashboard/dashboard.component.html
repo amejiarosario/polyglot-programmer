@@ -1,13 +1,20 @@
-<table>
-  <caption>Hyperpolyglot</caption>
-  <tr>
-    <th scope="col"></th>
-    <th scope="col" *ngFor="let header of tableData.meta.label">{{ header }}</th>
-  </tr>
+<div >
+  <table>
+    <caption>Hyperpolyglot</caption>
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col" *ngFor="let header of tableData.meta.label">{{ header }}</th>
+      </tr>
+    </thead>
 
-  <tr *ngFor="let d of tableData.data">
-    <th scope="row" *ngIf="!d.data"></th>
-    <th scope="row" [ngClass]="{'subheader': !d.data}" [attr.colspan]="d.data ? 1 : 4">{{ d.label }}</th>
-    <td *ngFor="let p of d.data"><pre><code class="language-bash">{{p.code}}</code></pre></td>
-  </tr>
-</table>
+    <tbody>
+      <tr *ngFor="let d of tableData.data" [ngClass]="{'subheader': !d.data}">
+        <th scope="row" *ngIf="!d.data"></th>
+        <th scope="row" [attr.colspan]="d.data ? 1 : 4">{{ d.label }}</th>
+        <td *ngFor="let p of d.data"><pre><code [ngClass]="'language-' + p.lang ">{{p.code}}</code></pre></td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>

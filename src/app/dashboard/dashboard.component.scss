@@ -12,8 +12,30 @@ table {
   }
 
   th {
-    background: lightgray;
+    background: #f4f5f7;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
   }
+
+  thead th {
+    background: lightblue;
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    top: 25px;
+    // height: 30px;
+  }
+
+  .subheader th {
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    top: 0px;
+    // height: 30px;
+  }
+
+  // tbody th {
+  //     position: -webkit-sticky; /* for Safari */
+  // position: sticky;
+  // left: 0;
+  // }
 
   th, td {
     padding: .3em;
