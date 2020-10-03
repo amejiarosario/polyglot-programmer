@@ -23,16 +23,19 @@ export function merger(src: IMultipleLanguages): ITableData {
   return dest;
 }
 
-export function mergeDeepConcat(src: ISingleLanguage, dest: IMultipleLanguages|any = {}): IMultipleLanguages | any {
+export function mergeDeepConcat(src: ISingleLanguage, dest: IMultipleLanguages|any = {}, index: number, size: number): IMultipleLanguages | any {
   if (['string', 'number'].includes(typeof (src))) {
-    return Array.isArray(dest) ? dest.concat(src) : [src];
+    if (!Array.isArray(dest)) { dest = Array(size).fill(''); }
+    dest[index] = src;
+    return dest;
   }
   for (const [k, v] of Object.entries(src)) {
-    dest[k] = mergeDeepConcat(v, dest[k]);
+    dest[k] = mergeDeepConcat(v, dest[k], index, size);
   }
   return dest;
 }
 
 export function mergeConcatArray(arrayOfObjects: ISingleLanguage[], dest: IMultipleLanguages|any = {}): IMultipleLanguages {
-  return arrayOfObjects.reduce((acc, src) => mergeDeepConcat(src, acc), dest);
+  const size = arrayOfObjects.length;
+  return arrayOfObjects.reduce((acc, src, i) => mergeDeepConcat(src, acc, i, size), dest);
 }

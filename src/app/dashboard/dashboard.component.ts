@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.tableData = this.service.getTableData();
+    console.log(this.tableData);
   }
 
 }
