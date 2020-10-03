@@ -4,8 +4,9 @@ export default {
     syntax: 'java',
   },
   data: {
-    // https://beginnersbook.com/2013/12/treemap-in-java-with-example/
+    // https://www.tutorialspoint.com/compile_java_online.php
     'Maps (HashMap / Dictionary)': {
+      // https://beginnersbook.com/2013/12/treemap-in-java-with-example/
       orderedMap: `import java.util.TreeMap;
 import java.util.Set;
 import java.util.Iterator;
