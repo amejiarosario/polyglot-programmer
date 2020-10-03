@@ -9,7 +9,8 @@ export default {
 
 int main()
 {
-    // Ordered map
+    // Ordered map (Self balancing BST like Red-Black Tree)
+    // Search, insert and delete: O(log n)
     std::map<int, int> order;
 
     // Mapping values to keys
@@ -33,7 +34,9 @@ int main()
       unorderedMap: `#include <bits/stdc++.h>
 
 int main() {
-    // Unordered map
+    // Unordered map (Hash Table)
+    // unordered_map doesn't keep insertion order. https://stackoverflow.com/a/42072390/684957
+    // Search, insert and delete: O(1): Avg, O(n): worst case
     std::unordered_map<int, int> order;
 
     // Mapping values to keys

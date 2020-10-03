@@ -5,6 +5,7 @@ import { merger, mergeConcatArray } from './../data/utils';
 import js from './../data/javascript';
 import py from './../data/python';
 import cpp from './../data/cpp';
+import java from './../data/java';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,6 @@ export class DashboardService {
   constructor() { }
 
   getTableData(): ITableData {
-    return merger(mergeConcatArray([js, py, cpp]));
+    return merger(mergeConcatArray([js, py, cpp, java]));
   }
 }
